@@ -1,0 +1,5 @@
+{
+  "name": "mtric_mobile",
+  "displayName": "mtric_mobile",
+  "packagerOpts": { "config": "metro.config.js", "sourceExts": [ "js","jsx","svg","ts","tsx"] },
+}
