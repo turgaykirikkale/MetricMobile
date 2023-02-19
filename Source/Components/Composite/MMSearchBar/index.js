@@ -23,8 +23,17 @@ const MMSearchBar = props => {
     }
   };
   return (
-    <View style={{borderWidth: 1, borderColor: '#ced7ea', borderRadius: 6}}>
+    <View
+      style={{
+        borderWidth: 1,
+        borderColor: '#ced7ea',
+        borderRadius: 6,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        marginTop: 8,
+      }}>
       <TextInput
+        placeholder="Ülke adı"
         style={{marginVertical: Platform.OS === 'ios' ? 5 : -10}}
         onChangeText={value => controlSearchData(value)}
       />

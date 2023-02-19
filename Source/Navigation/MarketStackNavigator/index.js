@@ -8,12 +8,16 @@ import WithdrawScreen from '../../Screens/WithdrawScreen';
 import MarketItemBuyAndInfoScreen from '../../Screens/MarketItemBuyAndInfoScreen';
 import ProfileStackNavigator from '../ProfileStackNavigator';
 import {View} from 'react-native';
-
+import LinearGradient from 'react-native-linear-gradient';
 const MarketStack = createNativeStackNavigator();
 
 const MarketStackTabNavigator = props => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <LinearGradient
+      colors={['white', '#ced7ea', '#7189ba']}
+      style={{
+        flex: 1,
+      }}>
       <MarketStack.Navigator
         screenOptions={{
           headerShown: false,
@@ -35,7 +39,7 @@ const MarketStackTabNavigator = props => {
           component={ProfileStackNavigator}
         />
       </MarketStack.Navigator>
-    </View>
+    </LinearGradient>
   );
 };
 

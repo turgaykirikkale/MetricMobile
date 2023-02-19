@@ -12,7 +12,7 @@ const MMSubTabView = props => {
         marginHorizontal: 10,
       }}>
       {_.map(subTabItems, item => {
-        return (
+        return item.name === null ? null : (
           <TouchableOpacity
             onPress={() => setSubTabIndex && setSubTabIndex(item.index)}
             style={{

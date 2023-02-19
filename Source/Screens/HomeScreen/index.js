@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, ScrollView, SafeAreaView} from 'react-native';
+import {View, ScrollView, SafeAreaView, Text} from 'react-native';
 import MMStandarHeader from '../../Components/UI/MMStandartHeader';
 import LinearGradient from 'react-native-linear-gradient';
 import MMButton from '../../Components/UI/MMButton';
@@ -22,6 +22,7 @@ const HomeScreen = props => {
   const data = [
     {
       NFT: 'DRIVER',
+      class: 'COMMER',
       selling: false,
       code: '#1231832',
       image: require('../../Assets/NFTImages/car2.jpeg'),
@@ -37,9 +38,24 @@ const HomeScreen = props => {
         {title: 'PLAK', Value: 2.8},
         {title: 'SERVICE', Value: 80},
       ],
+      extraClassCards: [
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
+      ],
     },
     {
       NFT: 'PASSENGER',
+      class: 'WALKİNG',
       selling: false,
       code: '#10373',
       image: require('../../Assets/PersonNFTs/Person1NFT.jpeg'),
@@ -112,6 +128,12 @@ const HomeScreen = props => {
     },
   ];
   const [selectedItem, setSelectedItem] = useState(data[0]);
+
+  const navigateToStartUsingScreen = () => {
+    navigation.navigate('StartUsingScreen', {
+      item: selectedItem,
+    });
+  };
   return (
     <LinearGradient
       colors={['white', '#ced7ea', '#7189ba']}
@@ -135,8 +157,9 @@ const HomeScreen = props => {
             />
           </View>
         </ScrollView>
+
         <MMButton
-          onPress={() => console.log(selectedItem)}
+          onPress={() => navigateToStartUsingScreen()}
           text={'START'}
           containerStyle={{
             backgroundColor: '#238636',

@@ -4,9 +4,8 @@ import {FlexibleDesigns} from '../../../Utils/FlexibleDesign';
 import MMButton from '../../UI/MMButton';
 
 const MMStakeItems = props => {
-  const {type, data, onPressItem} = props;
+  const {data, onPressItem} = props;
   const FlexibleDesign = FlexibleDesigns();
-  const width = FlexibleDesign.windowWidth;
 
   const borderColorControl = quality => {
     switch (quality) {
@@ -33,10 +32,9 @@ const MMStakeItems = props => {
         showsVerticalScrollIndicator={false}
         data={data}
         renderItem={({item, index}) =>
-          type === 0 ? (
+          item.stakeType === 0 ? (
             <View
               activeOpacity={0.7}
-              onPress={() => onPressItem && onPressItem(item)}
               style={{
                 flex:
                   index === data.length - 1 ? (index % 2 === 1 ? 1 : 0.482) : 1,
@@ -188,6 +186,7 @@ const MMStakeItems = props => {
                   marginVertical: 6,
                 }}>
                 <MMButton
+                  onPress={() => onPressItem && onPressItem(item)}
                   text={'STAKE'}
                   textStyle={{
                     textAlign: 'center',
@@ -381,6 +380,7 @@ const MMStakeItems = props => {
                   marginVertical: 6,
                 }}>
                 <MMButton
+                  onPress={() => onPressItem && onPressItem(item)}
                   text={'STAKE'}
                   textStyle={{
                     textAlign: 'center',

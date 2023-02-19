@@ -1,19 +1,22 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NFTScreen from '../../Screens/NFTScreen';
-import {View} from 'react-native';
 import WalletScreen from '../../Screens/WalletScreen';
 import TradeScreen from '../../Screens/TradeScreen';
 import DepositScreen from '../../Screens/DepositScreen';
 import WithdrawScreen from '../../Screens/WithdrawScreen';
 import NFTItemDetail from '../../Screens/NFTItemDetail';
 import ProfileStackNavigator from '../ProfileStackNavigator';
-
+import LinearGradient from 'react-native-linear-gradient';
 const NFTStack = createNativeStackNavigator();
 
 const NFTStackTabNavigator = props => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <LinearGradient
+      colors={['#7189ba', '#ced7ea', '#7189ba']}
+      style={{
+        flex: 1,
+      }}>
       <NFTStack.Navigator
         screenOptions={{
           headerShown: false,
@@ -29,7 +32,7 @@ const NFTStackTabNavigator = props => {
           component={ProfileStackNavigator}
         />
       </NFTStack.Navigator>
-    </View>
+    </LinearGradient>
   );
 };
 

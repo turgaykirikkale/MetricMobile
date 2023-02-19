@@ -119,6 +119,7 @@ const LoginScreen = props => {
     const requestBody = {
       email: userAttrs.email,
     };
+    console.log('OTPSERVICECALL', requestBody, type);
     if (type === 0) {
       setShowInfoModal(false);
       MMService.LoginOtp(requestBody)
@@ -129,10 +130,17 @@ const LoginScreen = props => {
           }
         })
         .catch(error => {
+          console.log('ERROR,', error);
           if (error.response && error.response.status === 400) {
             let errorVar = error.response.data;
             setShowerrorModal(true);
             setErrorMessage(errorVar?.errors[0].message);
+            console.log('ERROR,', error.response.data);
+          } else {
+            setShowerrorModal(true);
+            setErrorMessage(
+              'Servisler şu an bakımdadır lütfen bir süre sonra tekrar deneyiniz.',
+            );
           }
         });
     } else {
@@ -272,11 +280,14 @@ const LoginScreen = props => {
                 style={{
                   width: windowWidth / 1.5,
                   height: windowWidth / 3,
-                  backgroundColor: 'red',
+                  // backgroundColor: 'red',
                   alignSelf: 'center',
                   borderRadius: windowWidth / 4,
-                }}
-              />
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text>LOGO WİLL BE HERE</Text>
+              </View>
               <View
                 style={{
                   alignItems: 'flex-end',

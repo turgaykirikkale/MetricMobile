@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import MMStandarHeader from '../../Components/UI/MMStandartHeader';
 import MMDrawItems from '../../Components/Composite/MMDrawItems';
@@ -9,6 +9,7 @@ import MMDrawModal from '../../Components/Composite/MMDrawModal';
 import MMSubTabView from '../../Components/Composite/MMSubTabView';
 import MMAuctionItems from '../../Components/Composite/MMAuctionItems';
 import MMStakeItems from '../../Components/Composite/MMStakeItems';
+
 const AuctionItems = [
   {
     ownerName: 'Turgay',
@@ -182,6 +183,7 @@ const AuctionItems = [
 
 const cryptoStakeMockData = [
   {
+    stakeType: 0,
     coinCode: 'METRC',
     minLockAmount: 1000,
     earnedValue: 'METRC',
@@ -191,6 +193,7 @@ const cryptoStakeMockData = [
     interestRate: 0.45,
   },
   {
+    stakeType: 0,
     coinCode: 'SOL',
     minLockAmount: 1,
     earnedValue: 'METRC',
@@ -200,6 +203,7 @@ const cryptoStakeMockData = [
     interestRate: 1.2,
   },
   {
+    stakeType: 0,
     coinCode: 'SOL',
     minLockAmount: 1,
     earnedValue: 'METRC',
@@ -209,6 +213,7 @@ const cryptoStakeMockData = [
     interestRate: 1.2,
   },
   {
+    stakeType: 0,
     coinCode: 'USDT',
     minLockAmount: 100,
     earnedValue: 'METRC',
@@ -218,6 +223,7 @@ const cryptoStakeMockData = [
     interestRate: 2.3,
   },
   {
+    stakeType: 0,
     coinCode: 'USDT',
     minLockAmount: 100,
     earnedValue: 'METRC',
@@ -227,6 +233,7 @@ const cryptoStakeMockData = [
     interestRate: 4.98,
   },
   {
+    stakeType: 0,
     coinCode: 'USDT',
     minLockAmount: 100,
     earnedValue: 'METRC',
@@ -236,6 +243,7 @@ const cryptoStakeMockData = [
     interestRate: 12.6,
   },
   {
+    stakeType: 0,
     coinCode: 'USDT',
     minLockAmount: 100,
     earnedValue: 'METRC',
@@ -245,6 +253,7 @@ const cryptoStakeMockData = [
     interestRate: 12.6,
   },
   {
+    stakeType: 0,
     coinCode: 'USDT',
     minLockAmount: 100,
     earnedValue: 'USDT',
@@ -254,6 +263,7 @@ const cryptoStakeMockData = [
     interestRate: 16.4,
   },
   {
+    stakeType: 0,
     coinCode: 'USDT',
     minLockAmount: 100,
     earnedValue: 'METRC',
@@ -266,6 +276,7 @@ const cryptoStakeMockData = [
 
 const NFTStakeData = [
   {
+    stakeType: 1,
     NFT: 'PASSENGER',
     type: 4,
     typeName: 'HURRICANE',
@@ -279,6 +290,7 @@ const NFTStakeData = [
     earnedValue: 'METRX',
   },
   {
+    stakeType: 1,
     NFT: 'PASSENGER',
     type: 4,
     typeName: 'HURRICANE',
@@ -292,6 +304,7 @@ const NFTStakeData = [
     earnedValue: 'METRX',
   },
   {
+    stakeType: 1,
     NFT: 'PASSENGER',
     type: 3,
     typeName: 'BLAZE',
@@ -305,6 +318,7 @@ const NFTStakeData = [
     earnedValue: 'METRX',
   },
   {
+    stakeType: 1,
     NFT: 'PASSENGER',
     type: 0,
     typeName: 'TITAN',
@@ -318,6 +332,7 @@ const NFTStakeData = [
     earnedValue: 'METRX',
   },
   {
+    stakeType: 1,
     NFT: 'PASSENGER',
     type: 0,
     typeName: 'TITAN',
@@ -670,6 +685,7 @@ const DrawAndAuctionScreen = props => {
           ) : (
             <>
               <MMStakeItems
+                onPressItem={item => console.log('İtem,', item)}
                 type={subTabIndexForStaking === 0 ? 0 : 1}
                 data={
                   subTabIndexForStaking === 0

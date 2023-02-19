@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, Text} from 'react-native';
 import {FlexibleDesigns} from '../../../Utils/FlexibleDesign';
 import MMButton from '../../UI/MMButton';
 import MMMarketItemValuesShower from '../MMMarketItemValuesShower';
+import _ from 'lodash';
 const MMHomeScreenItemShower = props => {
   const borderColorControl = quality => {
     switch (quality) {
@@ -50,6 +51,25 @@ const MMHomeScreenItemShower = props => {
       setItem(data[data.length - 1]);
       selectedItem(data[data.length - 1]);
     }
+  };
+
+  const controlExtraClassCards = () => {
+    let viewLoop = [];
+    for (let index = 0; index < 5; index++) {
+      viewLoop.push(
+        <View
+          style={{
+            marginLeft: 5,
+            width: windowWidth / 6,
+            height: windowWidth / 6,
+            backgroundColor: 'red',
+            borderRadius: 6,
+          }}>
+          <Text>Hello</Text>
+        </View>,
+      );
+    }
+    return viewLoop;
   };
   console.log('selectedItemIndex', selectedItemIndex);
   console.log('SelectedItem', item);
@@ -115,6 +135,7 @@ const MMHomeScreenItemShower = props => {
             borderColor: borderColorControl(item.quality),
           }}
         />
+
         <>
           <MMButton
             containerStyle={{
@@ -190,6 +211,31 @@ const MMHomeScreenItemShower = props => {
           />
         </>
       </View>
+      <View
+        style={{
+          borderRadius: 6,
+          paddingVertical: 6,
+          marginHorizontal: 10,
+          marginTop: 8,
+          // backgroundColor: 'rgba(52, 52, 52, 0.3)',
+          shadowColor: FlexibleDesign.shadowColor,
+          shadowOffset: {
+            width: 10,
+            height: 10,
+          },
+          shadowOpacity: 0.5,
+          shadowRadius: 5,
+          elevation: 20,
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+          }}>
+          {controlExtraClassCards()}
+        </View>
+      </View>
+
       <View>
         <MMMarketItemValuesShower quality={0} type={2} data={item} />
       </View>

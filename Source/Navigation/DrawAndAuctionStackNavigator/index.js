@@ -6,12 +6,16 @@ import DrawScreenDetail from '../../Screens/DrawScreenDetail';
 import AuctionDetailScreen from '../../Screens/AuctionDetailScreen';
 import ProfileStackNavigator from '../ProfileStackNavigator';
 import {View} from 'react-native';
-
+import LinearGradient from 'react-native-linear-gradient';
 const DrawStack = createNativeStackNavigator();
 
 const DrawStackTabNavigator = props => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <LinearGradient
+      colors={['white', '#ced7ea', '#7189ba']}
+      style={{
+        flex: 1,
+      }}>
       <DrawStack.Navigator
         screenOptions={{
           headerShown: false,
@@ -34,7 +38,7 @@ const DrawStackTabNavigator = props => {
           component={ProfileStackNavigator}
         />
       </DrawStack.Navigator>
-    </View>
+    </LinearGradient>
   );
 };
 

@@ -12,18 +12,11 @@ export const MMService = axios.create({
     // 'Ocp-Apim-Subscription-Key': 'fe892b2e-92d3-4aa5-aade-c52971c368bd',
     // languageId: 1,
     // Accept: 'application/xml',
-    // 'User-Agent': 'bitci',
+    // 'User-Agent': 'NEREDEN GELDIGI',
   },
 });
 
 export const setAuthTokenToHeader = authToken => {
-  // MMService.interceptors.request.use(async config => {
-  //   if (authToken) {
-  //     config.headers.Cookie = 'session=' + authToken;
-  //     console.log('AUTHTOKENFROmSERVİCE', authToken);
-  //     console.log('MMSERVİCEHEADER', MMService.defaults.headers);
-  //   }
-  // });
   if (authToken) {
     console.log('AUTHTOKENFROmSERVİCE', authToken);
     MMService.defaults.headers.common.Authorization = 'Bearer ' + authToken;

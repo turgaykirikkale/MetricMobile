@@ -78,8 +78,14 @@ const MMSelectCountryAndLanguageModal = props => {
                       borderColor: '#ced7ea',
                       paddingHorizontal: 10,
                       paddingVertical: 10,
+                      alignItems: 'center',
                     }}>
-                    <View style={{width: 20, height: 20, marginRight: 15}}>
+                    <View
+                      style={{
+                        width: 30,
+                        height: 30,
+                        marginRight: 15,
+                      }}>
                       <MMGeneralIcon iconName={item.flag} />
                     </View>
                     <Text
