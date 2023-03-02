@@ -7,6 +7,7 @@ import DepositScreen from '../../Screens/DepositScreen';
 import WithdrawScreen from '../../Screens/WithdrawScreen';
 import NFTItemDetail from '../../Screens/NFTItemDetail';
 import ProfileStackNavigator from '../ProfileStackNavigator';
+import MarketStackTabNavigator from '../MarketStackNavigator';
 import LinearGradient from 'react-native-linear-gradient';
 const NFTStack = createNativeStackNavigator();
 
@@ -30,6 +31,10 @@ const NFTStackTabNavigator = props => {
         <NFTStack.Screen
           name={'ProfileStackNavigator'}
           component={ProfileStackNavigator}
+        />
+        <NFTStack.Screen
+          name={'MarketStackTabNavigator'}
+          component={MarketStackTabNavigator}
         />
       </NFTStack.Navigator>
     </LinearGradient>

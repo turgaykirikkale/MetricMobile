@@ -13,12 +13,14 @@ const MMMarketItemValuesShower = props => {
     {title: 'Sell', active: true, icon: '', price: 10}, //level arttıkca markete koyma price artacak.
     {title: 'Use', active: true, icon: '', price: 10},
     {title: 'Send', active: true, icon: '', price: null},
+    {title: 'Repoint', active: true, icon: '', price: null},
   ];
   const optionNFT = [
     {title: 'Level Up', active: true, icon: '', price: 10, nav: 0}, //level arttıkça Level up fiyatı artacak
-    {title: 'Service', active: true, icon: '', nav: 1},
+    {title: 'Repair', active: true, icon: '', nav: 1},
     {title: 'Sell', active: true, icon: '', price: 10, nav: 2}, //level arttıkca markete koyma price artacak.
     {title: 'Send', active: true, icon: '', price: null, nav: 3},
+    {title: 'Repoint', active: true, icon: '', price: null, nav: 4},
   ];
   const borderControlForPieceItem = typeNumber => {
     switch (typeNumber) {
@@ -42,6 +44,7 @@ const MMMarketItemValuesShower = props => {
     'Cüzdanızda teklifte bulunacağınız kadar miktarının yüzde %5 transaction ücreti de dahil olacak şekilde bakiyeniz olmalıdır.',
   ];
   console.log('pixesData', pidTextData);
+  console.log('data', data);
   return (
     <>
       <View
@@ -119,34 +122,33 @@ const MMMarketItemValuesShower = props => {
               {`LEVEL : ${data.level}`}
             </Text>
           </TouchableOpacity>
-          {quality === 0 ? (
-            <TouchableOpacity
-              disabled={true}
+
+          <TouchableOpacity
+            disabled={true}
+            style={{
+              shadowColor: FlexibleDesign.shadowColor,
+              shadowOffset: {
+                width: 0,
+                height: 10,
+              },
+              shadowOpacity: 0.2,
+              shadowRadius: 4,
+              elevation: 20,
+              backgroundColor: '#7189ba',
+              borderRadius: 10,
+              flex: 1,
+              alignItems: 'center',
+            }}>
+            <Text
               style={{
-                shadowColor: FlexibleDesign.shadowColor,
-                shadowOffset: {
-                  width: 0,
-                  height: 10,
-                },
-                shadowOpacity: 0.2,
-                shadowRadius: 4,
-                elevation: 20,
-                backgroundColor: '#7189ba',
-                borderRadius: 10,
-                flex: 1,
-                alignItems: 'center',
+                marginVertical: 5,
+                fontWeight: '500',
+                letterSpacing: 0.7,
+                fontSize: FlexibleDesign.fontSize - 2,
               }}>
-              <Text
-                style={{
-                  marginVertical: 5,
-                  fontWeight: '500',
-                  letterSpacing: 0.7,
-                  fontSize: FlexibleDesign.fontSize - 2,
-                }}>
-                {data.NFT}
-              </Text>
-            </TouchableOpacity>
-          ) : null}
+              {data.NFT}
+            </Text>
+          </TouchableOpacity>
 
           <TouchableOpacity
             disabled={true}
@@ -413,7 +415,11 @@ const MMMarketItemValuesShower = props => {
               return (
                 <MMButton
                   text={item.title}
-                  textStyle={{color: '#238636', fontWeight: 'bold'}}
+                  textStyle={{
+                    color: '#238636',
+                    fontWeight: 'bold',
+                    fontSize: 9,
+                  }}
                   containerStyle={{
                     borderWidth: 2,
                     flex: 1,
@@ -421,7 +427,7 @@ const MMMarketItemValuesShower = props => {
                     marginHorizontal: 2,
                     borderRadius: 6,
                     borderColor: '#238636',
-                    paddingVertical: 6,
+                    paddingVertical: 2,
                   }}
                 />
               );

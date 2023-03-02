@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import MMButton from '../../Components/UI/MMButton';
 import MMHomeScreenItemShower from '../../Components/Composite/MMHomeScreenItemShower';
 import MMService from '../../Service';
-
+import {styles} from './assets/styles';
 const HomeScreen = props => {
   const {navigation} = props;
 
@@ -22,7 +22,7 @@ const HomeScreen = props => {
   const data = [
     {
       NFT: 'DRIVER',
-      class: 'COMMER',
+      class: 'COMMER', //BURADAKİ CLASS NEDİR ACIKLANACAK VE GENISLETİLECEK
       selling: false,
       code: '#1231832',
       image: require('../../Assets/NFTImages/car2.jpeg'),
@@ -33,12 +33,26 @@ const HomeScreen = props => {
       qualityName: 'BRONZE',
       level: 2,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
-      extraClassCards: [
+      NFTPiece: [
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
+      ],
+      NFTComboCard: [
         {
           name: 'Seat',
           id: 0,
@@ -55,7 +69,7 @@ const HomeScreen = props => {
     },
     {
       NFT: 'PASSENGER',
-      class: 'WALKİNG',
+      class: 'WALKİNG', //BURADAKİ CLASS NEDİR ACIKLANACAK VE GENISLETİLECEK
       selling: false,
       code: '#10373',
       image: require('../../Assets/PersonNFTs/Person1NFT.jpeg'),
@@ -66,10 +80,38 @@ const HomeScreen = props => {
       qualityName: 'IRON',
       level: 34,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
+      ],
+      NFTPiece: [
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
+      ],
+      NFTComboCard: [
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
+        {
+          name: 'Seat',
+          id: 0,
+        },
       ],
     },
   ];
@@ -137,9 +179,7 @@ const HomeScreen = props => {
   return (
     <LinearGradient
       colors={['white', '#ced7ea', '#7189ba']}
-      style={{
-        flex: 1,
-      }}>
+      style={styles.mainContainer}>
       <SafeAreaView style={{flex: 1}}>
         <MMStandarHeader
           navigateToProfileStack={() =>
@@ -147,8 +187,10 @@ const HomeScreen = props => {
           }
           onPressWalletButtons={() => navigation.navigate('WalletScreen')}
         />
-        <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View style={{paddingBottom: 60, marginTop: 10}}>
+        <ScrollView
+          contentContainerStyle={styles.contentContainerStyle}
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.NftShowerContainer}>
             <MMHomeScreenItemShower
               data={data}
               selectedItem={item => {
@@ -161,17 +203,8 @@ const HomeScreen = props => {
         <MMButton
           onPress={() => navigateToStartUsingScreen()}
           text={'START'}
-          containerStyle={{
-            backgroundColor: '#238636',
-            alignItems: 'center',
-            marginVertical: 5,
-          }}
-          textStyle={{
-            marginVertical: 10,
-            color: 'white',
-            letterSpacing: 1.3,
-            fontWeight: 'bold',
-          }}
+          containerStyle={styles.startButtonContainerStyle}
+          textStyle={styles.startButtonTextStyle}
         />
       </SafeAreaView>
     </LinearGradient>

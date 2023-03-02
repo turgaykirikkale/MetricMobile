@@ -24,7 +24,7 @@ const TabArr = [
     iconType: 0,
   },
   {
-    name: 'Draw',
+    name: 'Market',
     component: MarketStackTabNavigator,
     icon: 'suitcase',
     color: 'white',
@@ -33,7 +33,7 @@ const TabArr = [
     iconType: 0,
   },
   {
-    name: 'Market',
+    name: 'Draw',
     component: DrawAndAuctionStackTabNavigator,
     icon: 'gift',
     color: 'white',
@@ -53,6 +53,7 @@ const TabArr = [
 ];
 const TabButton = props => {
   const {item, onPress, accessibilityState} = props;
+  console.log('accessibilityState', accessibilityState);
   const focused = accessibilityState.selected;
   const viewRef = useRef(null);
   console.log('propssss', props);

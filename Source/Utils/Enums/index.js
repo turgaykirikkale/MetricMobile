@@ -8,3 +8,15 @@ export const rulesEnums = {
   withdrawAdress: 7,
   moneyInput: 8,
 };
+
+export const NFTImageComponentControl = {
+  home: 0,
+  NFTMarket: 1,
+  NFTPieceMarket: 2,
+};
+
+export const AttributesShowerTypes = {
+  home: 0,
+  NFTMarket: 1,
+  NFTPieceMarket: 2,
+};

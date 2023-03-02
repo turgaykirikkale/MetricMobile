@@ -7,17 +7,19 @@ import _ from 'lodash';
 function MMNFTScreenPersonalItemControl(props) {
   const windowWidth = FlexibleDesigns().windowWidth;
 
-  const {data, header, onPress} = props;
+  const {data, header, navigation, onPressItem} = props;
   return (
     <View style={{marginVertical: 10}}>
       <View
         style={{
-          backgroundColor: '#46936d',
+          backgroundColor: '#225d84',
           marginHorizontal: 30,
           paddingVertical: 3,
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
           justifyContent: 'center',
+          borderBottomWidth: 1,
+          borderBottomColor: 'white',
         }}>
         <Text
           style={{
@@ -31,12 +33,12 @@ function MMNFTScreenPersonalItemControl(props) {
       </View>
       <View
         style={{
-          backgroundColor: '#3983b2',
+          backgroundColor: '#225d84',
           // borderWidth: 1,
           // borderColor: '#15181D',
           marginHorizontal: 10,
           paddingHorizontal: 9,
-          height: windowWidth / 2,
+          height: windowWidth / 2.5,
           borderRadius: 20,
           justifyContent: !_.isEmpty(data) && !_.isNull(data) ? null : 'center',
           alignItems: !_.isEmpty(data) && !_.isNull(data) ? null : 'center',
@@ -50,7 +52,9 @@ function MMNFTScreenPersonalItemControl(props) {
               {_.map(data, item => {
                 return (
                   <>
-                    <View
+                    <TouchableOpacity
+                      onPress={() => onPressItem && onPressItem(item)}
+                      activeOpacity={0.7}
                       style={{
                         justifyContent: 'center',
                         paddingHorizontal: 5,
@@ -59,19 +63,25 @@ function MMNFTScreenPersonalItemControl(props) {
                         source={item.image}
                         resizeMode={'cover'}
                         style={{
-                          width: windowWidth / 3.5,
-                          height: '90%',
-                          borderRadius: 20,
+                          width: windowWidth / 4,
+                          height: '70%',
+                          borderRadius: 10,
                         }}
                       />
-                    </View>
+                    </TouchableOpacity>
                   </>
                 );
               })}
             </ScrollView>
           </>
         ) : (
-          <TouchableOpacity onPress={() => onPress && onPress()}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Market', {
+                screen: 'MarketScreen',
+              })
+            }
+            activeOpacity={0.7}>
             <MMVectorIcon
               iconName={'plus-square'}
               color={'#A5ABB9'}

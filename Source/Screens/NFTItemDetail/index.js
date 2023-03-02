@@ -5,6 +5,7 @@ import MMStandarHeader from '../../Components/UI/MMStandartHeader';
 import MMButton from '../../Components/UI/MMButton';
 import {FlexibleDesigns} from '../../Utils/FlexibleDesign';
 import MMMarketItemValuesShower from '../../Components/Composite/MMMarketItemValuesShower';
+import MMComboCard from '../../Components/UI/MMComboCard';
 const NFTItemDetail = props => {
   const FlexibleDesign = FlexibleDesigns();
   const windowWidth = FlexibleDesign.windowWidth;
@@ -57,7 +58,7 @@ const NFTItemDetail = props => {
           navigation={navigation}
           backButton
         />
-        <ScrollView style={{marginTop: 5}}>
+        <ScrollView style={{marginTop: 5}} showsVerticalScrollIndicator={false}>
           <View
             style={{
               marginHorizontal: 10,
@@ -86,83 +87,85 @@ const NFTItemDetail = props => {
                     : borderControlForPieceItem(item.type),
               }}
             />
-            {type === 0 ? (
-              <>
-                <MMButton
-                  containerStyle={{
-                    width: 50,
-                    height: 50,
-                    backgroundColor: '#4d7c10',
-                    position: 'absolute',
-                    left: 15,
-                    top: 15,
-                    borderRadius: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                  text={item.NFT === 'PASSENGER' ? 'P' : 'B'}
-                  textStyle={{
-                    fontSize: FlexibleDesign.fontSize + 12,
-                    fontWeight: 'bold',
-                  }}
-                />
-                <MMButton
-                  containerStyle={{
-                    width: 50,
-                    height: 50,
-                    backgroundColor: '#841717',
-                    position: 'absolute',
-                    right: 15,
-                    bottom: 15,
-                    borderRadius: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                  text={item.NFT === 'PASSENGER' ? 'R' : 'S'}
-                  textStyle={{
-                    fontSize: FlexibleDesign.fontSize + 12,
-                    fontWeight: 'bold',
-                  }}
-                />
-                <MMButton
-                  containerStyle={{
-                    width: 50,
-                    height: 50,
-                    backgroundColor: '#1150a3',
-                    position: 'absolute',
-                    right: 15,
-                    top: 15,
-                    borderRadius: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                  text={item.NFT === 'PASSENGER' ? 'I' : 'P'}
-                  textStyle={{
-                    fontSize: FlexibleDesign.fontSize + 12,
-                    fontWeight: 'bold',
-                  }}
-                />
 
-                <MMButton
-                  containerStyle={{
-                    width: 50,
-                    height: 50,
-                    backgroundColor: '#666b75',
-                    position: 'absolute',
-                    left: 15,
-                    bottom: 15,
-                    borderRadius: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                  text={item.NFT === 'PASSENGER' ? 'C' : 'P'}
-                  textStyle={{
-                    fontSize: FlexibleDesign.fontSize + 12,
-                    fontWeight: 'bold',
-                  }}
-                />
-              </>
-            ) : null}
+            <>
+              <MMButton
+                containerStyle={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: '#4d7c10',
+                  position: 'absolute',
+                  left: 15,
+                  top: 15,
+                  borderRadius: 10,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                text={item.NFT === 'PASSENGER' ? 'P' : 'B'}
+                textStyle={{
+                  fontSize: FlexibleDesign.fontSize + 12,
+                  fontWeight: 'bold',
+                }}
+              />
+              <MMButton
+                containerStyle={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: '#841717',
+                  position: 'absolute',
+                  right: 15,
+                  bottom: 15,
+                  borderRadius: 10,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                text={item.NFT === 'PASSENGER' ? 'R' : 'S'}
+                textStyle={{
+                  fontSize: FlexibleDesign.fontSize + 12,
+                  fontWeight: 'bold',
+                }}
+              />
+              <MMButton
+                containerStyle={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: '#1150a3',
+                  position: 'absolute',
+                  right: 15,
+                  top: 15,
+                  borderRadius: 10,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                text={item.NFT === 'PASSENGER' ? 'I' : 'P'}
+                textStyle={{
+                  fontSize: FlexibleDesign.fontSize + 12,
+                  fontWeight: 'bold',
+                }}
+              />
+
+              <MMButton
+                containerStyle={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: '#666b75',
+                  position: 'absolute',
+                  left: 15,
+                  bottom: 15,
+                  borderRadius: 10,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                text={item.NFT === 'PASSENGER' ? 'C' : 'P'}
+                textStyle={{
+                  fontSize: FlexibleDesign.fontSize + 12,
+                  fontWeight: 'bold',
+                }}
+              />
+            </>
+          </View>
+          <View>
+            <MMComboCard />
           </View>
           <View>
             <MMMarketItemValuesShower

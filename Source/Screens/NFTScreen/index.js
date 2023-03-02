@@ -341,22 +341,41 @@ const NFTScreen = props => {
           }
         />
         <ScrollView scrollEnabled showsVerticalScrollIndicator={false}>
-          <MMNFTScreenPersonalItemControl data={PersonalNFT} header={'NFT'} />
+          <MMNFTScreenPersonalItemControl
+            data={PersonalNFT}
+            header={'NFT'}
+            onPressItem={item =>
+              navigation.navigate('NFTItemDetail', {
+                type: 0,
+                item: item,
+              })
+            }
+          />
           <MMNFTScreenPersonalItemControl
             data={PersonalNFTPiece}
             header={'NFT Piece'}
+            navigation={navigation}
+            onPressItem={item =>
+              navigation.navigate('NFTItemDetail', {
+                type: 1,
+                item: item,
+              })
+            }
           />
           <MMNFTScreenPersonalItemControl
             data={PersonalComboNFTPiece}
             header={'COMBO NFT Piece'}
+            navigation={navigation}
           />
           <MMNFTScreenPersonalItemControl
             data={PersonalOtherValues}
             header={'Others'}
+            navigation={navigation}
           />
           <MMNFTScreenPersonalItemControl
             data={PersonalStakeItem}
             header={'Stake'}
+            navigation={navigation}
           />
         </ScrollView>
       </SafeAreaView>

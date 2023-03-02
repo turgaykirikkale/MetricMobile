@@ -10,6 +10,7 @@ import MMMarketFilterModal from '../../Components/Composite/MMMarketFilterModal'
 import MMMarketPieceFilterModal from '../../Components/Composite/MMMarketPieceFilterModal';
 import MMMarketOtherItems from '../../Components/Composite/MMMarketsOthersItems';
 import MMMarketOthersFilterModal from '../../Components/Composite/MMMarketOthersFilterModal';
+import {NFTImageComponentControl} from '../../Utils/Enums';
 
 const MarketScreen = props => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -66,10 +67,10 @@ const MarketScreen = props => {
       qualityName: 'IRON',
       level: 0,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -83,10 +84,10 @@ const MarketScreen = props => {
       qualityName: 'BRONZE',
       level: 2,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -100,10 +101,10 @@ const MarketScreen = props => {
       qualityName: 'SILVER',
       level: 15,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -117,10 +118,10 @@ const MarketScreen = props => {
       qualityName: 'IRON',
       level: 50,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -134,10 +135,10 @@ const MarketScreen = props => {
       qualityName: 'GOLD',
       level: 43,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -151,10 +152,10 @@ const MarketScreen = props => {
       qualityName: 'PLATINUM',
       level: 23,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -168,10 +169,10 @@ const MarketScreen = props => {
       qualityName: 'DIAMOND',
       level: 8,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -185,10 +186,10 @@ const MarketScreen = props => {
       qualityName: 'SILVER',
       level: 8,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -202,10 +203,10 @@ const MarketScreen = props => {
       qualityName: 'IRON',
       level: 10,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -219,10 +220,10 @@ const MarketScreen = props => {
       qualityName: 'GOLD',
       level: 42,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
     {
@@ -236,10 +237,10 @@ const MarketScreen = props => {
       qualityName: 'GOLD',
       level: 42,
       attributes: [
-        {title: 'BATTERY', Value: 140},
-        {title: 'POWER', Value: 1.6},
-        {title: 'PLAK', Value: 2.8},
-        {title: 'SERVICE', Value: 80},
+        {title: 'BATTERY', Value: 140, type: 0},
+        {title: 'POWER', Value: 1.6, type: 1},
+        {title: 'PLAK', Value: 2.8, type: 2},
+        {title: 'SERVICE', Value: 80, type: 3},
       ],
     },
   ];
@@ -256,10 +257,10 @@ const MarketScreen = props => {
       qualityName: 'IRON',
       level: 34,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
       ],
     },
     {
@@ -273,10 +274,10 @@ const MarketScreen = props => {
       qualityName: 'BRONZE',
       level: 129,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
       ],
     },
     {
@@ -290,10 +291,10 @@ const MarketScreen = props => {
       qualityName: 'SILVER',
       level: 2,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
       ],
     },
     {
@@ -307,10 +308,10 @@ const MarketScreen = props => {
       qualityName: 'GOLD',
       level: 6,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
       ],
     },
     {
@@ -324,10 +325,10 @@ const MarketScreen = props => {
       qualityName: 'PLATINUM',
       level: 9,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
       ],
     },
     {
@@ -341,10 +342,10 @@ const MarketScreen = props => {
       qualityName: 'DIAMOND',
       level: 12,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
       ],
     },
     {
@@ -358,10 +359,10 @@ const MarketScreen = props => {
       qualityName: 'PLATINUM',
       level: 42,
       attributes: [
-        {title: 'PRODUCTIVITY', Value: 140},
-        {title: 'IMPROVEMENT', Value: 1.6},
-        {title: 'CHANCE', Value: 2.8},
-        {title: 'RESTORE', Value: 80},
+        {title: 'PRODUCTIVITY', Value: 140, type: 0},
+        {title: 'IMPROVEMENT', Value: 1.6, type: 1},
+        {title: 'CHANCE', Value: 2.8, type: 2},
+        {title: 'RESTORE', Value: 80, type: 3},
       ],
     },
   ];
@@ -712,7 +713,7 @@ const MarketScreen = props => {
             NFTData={subTabIndex === 0 ? NFTDatasForPassenger : NFTDataForCars}
             onPressItem={item =>
               navigation.navigate('MarketItemBuyAndInfoScreen', {
-                type: 0,
+                NFTTypeControl: NFTImageComponentControl.NFTMarket,
                 item: item,
               })
             }
@@ -723,7 +724,7 @@ const MarketScreen = props => {
             tabType={0}
             onPressItem={item =>
               navigation.navigate('MarketItemBuyAndInfoScreen', {
-                type: 1,
+                NFTTypeControl: NFTImageComponentControl.NFTPieceMarket,
                 item: item,
               })
             }
