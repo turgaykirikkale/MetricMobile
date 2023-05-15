@@ -39,7 +39,9 @@ const MarketItemBuyAndInfoScreen = props => {
             alert('Buy iken alınan data bilgileri gelecek')
           }
         />
-        <ScrollView style={styles.marginTop}>
+        <ScrollView
+          style={styles.marginTop}
+          showsVerticalScrollIndicator={false}>
           <MMNFTImageShower type={NFTTypeControl} item={item} />
           <View>
             <MMNFTAttributesShower

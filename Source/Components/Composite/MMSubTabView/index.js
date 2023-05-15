@@ -1,16 +1,11 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import _ from 'lodash';
+import {styles} from './assets';
 const MMSubTabView = props => {
   const {subTabItems, subTabIndex, setSubTabIndex} = props;
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        // marginHorizontal: 10,
-        marginTop: 10,
-        marginHorizontal: 10,
-      }}>
+    <View style={styles.mainContainer}>
       {_.map(subTabItems, item => {
         return item.name === null ? null : (
           <TouchableOpacity

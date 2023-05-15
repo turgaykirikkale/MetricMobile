@@ -3,6 +3,7 @@ import {Modal, Text, View, TouchableOpacity, Image} from 'react-native';
 import MMButton from '../../UI/MMButton';
 import {FlexibleDesigns} from '../../../Utils/FlexibleDesign';
 import _ from 'lodash';
+import { NFTImageComponentControl } from '../../../Utils/Enums';
 
 const MMItemBuyModal = props => {
   const {modalShow, closeModal, data, onPressApprove, type} = props;
@@ -138,7 +139,7 @@ const MMItemBuyModal = props => {
               {data.typeName}
             </Text>
           </View>
-          {type === 0 ? (
+          {type === NFTImageComponentControl.NFTMarket ? (
             <View
               style={{
                 flexDirection: 'row',

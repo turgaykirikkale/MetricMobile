@@ -1,4 +1,6 @@
-import React from 'react';
+//BURASI DUZELTILECEK BUY IKEN CUZDAN VE DIGERLERI EKLENECEK
+
+import React, {useState} from 'react';
 import {TouchableOpacity, View, Text, Modal, Image} from 'react-native';
 import MMButton from '../../UI/MMButton';
 import {FlexibleDesigns} from '../../../Utils/FlexibleDesign';
@@ -43,6 +45,11 @@ const MMDrawModal = props => {
         break;
     }
   };
+
+  const [controlBuyFlow, setControlBuyFlow] = useState({
+    situation: false,
+    type: null,
+  });
   return (
     <Modal
       visible={modalShow}
@@ -69,126 +76,139 @@ const MMDrawModal = props => {
           // alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <View
-          style={{
-            backgroundColor: 'white',
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 40,
-          }}>
-          <View style={{marginVertical: 10}}>
-            <Text
-              style={{
-                color: borderColorControl(item.quality),
-                fontWeight: 'bold',
-              }}>
-              {`${titleControl(item.quality)} LUCKY DRAW`}
-            </Text>
-          </View>
-          <View>
-            <Image
-              source={item.image}
-              resizeMode={'contain'}
-              style={{
-                width: 100,
-                height: 80,
-                borderRadius: 40,
-                borderWidth: 1,
-                borderColor: borderColorControl(item.quality),
-              }}
-            />
-          </View>
-          <View style={{marginVertical: 10, alignItems: 'center'}}>
-            <Text
-              style={{
-                fontSize: 10,
-                marginVertical: 8,
-                letterSpacing: 0.7,
-                textAlign: 'center',
-              }}>
-              {item.description}
-            </Text>
-          </View>
+        {!controlBuyFlow.situation ? (
           <View
-            style={{width: '100%', alignItems: 'center', flexDirection: 'row'}}>
+            style={{
+              backgroundColor: 'white',
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 40,
+            }}>
+            <View style={{marginVertical: 10}}>
+              <Text
+                style={{
+                  color: borderColorControl(item.quality),
+                  fontWeight: 'bold',
+                }}>
+                {`${titleControl(item.quality)} LUCKY DRAW`}
+              </Text>
+            </View>
+            <View>
+              <Image
+                source={item.image}
+                resizeMode={'contain'}
+                style={{
+                  width: 180,
+                  height: 140,
+                  borderRadius: 70,
+                  borderWidth: 1,
+                  borderColor: borderColorControl(item.quality),
+                }}
+              />
+            </View>
+            <View style={{marginVertical: 10, alignItems: 'center'}}>
+              <Text
+                style={{
+                  fontSize: 10,
+                  marginVertical: 8,
+                  letterSpacing: 0.7,
+                  textAlign: 'center',
+                }}>
+                {item.description}
+              </Text>
+            </View>
+            <View
+              style={{
+                width: '100%',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <MMButton
+                disabled={true}
+                text={`Price : ${item.price} ${item.coinCode}`}
+                textStyle={{
+                  fontWeight: '500',
+                  letterSpacing: 0.7,
+                  fontSize: 10,
+                }}
+                containerStyle={{
+                  flex: 1,
+                  borderWidth: 1,
+                  paddingHorizontal: 6,
+                  borderRadius: 6,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 4,
+                  borderColor: '#ced7ea',
+                  marginRight: 5,
+                }}
+              />
+              <MMButton
+                disabled={true}
+                text={`Ticket Price: ${item.joinTicket}`}
+                textStyle={{
+                  fontWeight: '500',
+                  letterSpacing: 0.7,
+                  fontSize: 10,
+                }}
+                containerStyle={{
+                  borderWidth: 1,
+                  paddingHorizontal: 6,
+                  borderRadius: 6,
+                  flex: 1,
+                  marginLeft: 5,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 4,
+                  borderColor: '#ced7ea',
+                }}
+              />
+            </View>
             <MMButton
-              disabled={true}
-              text={`Price : ${item.price} ${item.coinCode}`}
+              onPress={() => alert('METRIC')}
               textStyle={{
+                color: 'white',
                 fontWeight: '500',
                 letterSpacing: 0.7,
-                fontSize: 10,
               }}
+              text={`JOİN WİTH METRİC`}
               containerStyle={{
-                flex: 1,
-                borderWidth: 1,
-                paddingHorizontal: 6,
+                marginTop: 15,
                 borderRadius: 6,
+                width: '100%',
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingVertical: 4,
-                borderColor: '#ced7ea',
-                marginRight: 5,
+                backgroundColor: '#238636',
               }}
             />
+
             <MMButton
-              disabled={true}
-              text={`Ticket Price: ${item.joinTicket}`}
+              onPress={() =>
+                setControlBuyFlow({
+                  situation: true,
+                  type: 1,
+                })
+              }
               textStyle={{
+                color: 'white',
                 fontWeight: '500',
                 letterSpacing: 0.7,
-                fontSize: 10,
               }}
+              text={`JOİN WİTH TİCKET`}
               containerStyle={{
-                borderWidth: 1,
-                paddingHorizontal: 6,
+                marginTop: 5,
                 borderRadius: 6,
-                flex: 1,
-                marginLeft: 5,
+                width: '100%',
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingVertical: 4,
-                borderColor: '#ced7ea',
+                backgroundColor: '#7189ba',
               }}
             />
           </View>
-          <MMButton
-            textStyle={{
-              color: 'white',
-              fontWeight: '500',
-              letterSpacing: 0.7,
-            }}
-            text={`JOİN WİTH METRİC`}
-            containerStyle={{
-              marginTop: 15,
-              borderRadius: 6,
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingVertical: 4,
-              backgroundColor: '#238636',
-            }}
-          />
-
-          <MMButton
-            textStyle={{
-              color: 'white',
-              fontWeight: '500',
-              letterSpacing: 0.7,
-            }}
-            text={`JOİN WİTH TİCKET`}
-            containerStyle={{
-              marginTop: 5,
-              borderRadius: 6,
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingVertical: 4,
-              backgroundColor: '#7189ba',
-            }}
-          />
-        </View>
+        ) : null}
       </View>
     </Modal>
   );

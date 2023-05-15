@@ -28,11 +28,14 @@ function MMNFTAttributesShower(props) {
           textStyle={styles.NFTLevelTypeQuailityButtonTextStyle}
           containerStyle={styles.NFTLevelTypeQuailityButtonContainer}
         />
-        <MMButton
-          text={`${data.qualityName ? data.qualityName : data.NFT}`}
-          textStyle={styles.NFTLevelTypeQuailityButtonTextStyle}
-          containerStyle={styles.NFTLevelTypeQuailityButtonContainer}
-        />
+        {attributesShowerType ===
+        NFTImageComponentControl.NFTPieceMarket ? null : (
+          <MMButton
+            text={`${data.qualityName}`}
+            textStyle={styles.NFTLevelTypeQuailityButtonTextStyle}
+            containerStyle={styles.NFTLevelTypeQuailityButtonContainer}
+          />
+        )}
       </View>
       <View style={styles.NFTAttributesContainer}>
         {_.map(data.attributes, (item, index) => {

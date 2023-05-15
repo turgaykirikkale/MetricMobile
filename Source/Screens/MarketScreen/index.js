@@ -11,6 +11,7 @@ import MMMarketPieceFilterModal from '../../Components/Composite/MMMarketPieceFi
 import MMMarketOtherItems from '../../Components/Composite/MMMarketsOthersItems';
 import MMMarketOthersFilterModal from '../../Components/Composite/MMMarketOthersFilterModal';
 import {NFTImageComponentControl} from '../../Utils/Enums';
+import MMItemBuyModal from '../../Components/Composite/MMItemBuyModal';
 
 const MarketScreen = props => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -21,6 +22,8 @@ const MarketScreen = props => {
   const [showPieceFilterModal, setShowPieceFilterModal] = useState(false);
   const [OtherItemsFilterData, setOtherItemsFilterData] = useState(null);
   const [showOthersFilterModal, setShowOtherFilterModal] = useState(false);
+  const [showBuyModal, setShowBuyModal] = useState(false);
+  const [fastBuyItem, setFastBuyItem] = useState([]);
 
   const tabItems = [
     {
@@ -470,6 +473,8 @@ const MarketScreen = props => {
         {title: 'EXTRRA BASE RATIO', Value: '%10'},
       ],
       NFT: 'PASSANGER',
+
+      //maxiumum 10 LEVELE KADAR GELEBİLECEKLER!!
     },
     {
       code: '#13303753',
@@ -658,6 +663,11 @@ const MarketScreen = props => {
     }
   };
 
+  const setFastBuyPressControl = item => {
+    setFastBuyItem(item);
+    setShowBuyModal(true);
+  };
+
   const {navigation} = props;
   console.log('NFTFilterData', NFTFilterData);
   console.log('PIECEFİLTER', NFTPiecesFilterData);
@@ -668,13 +678,23 @@ const MarketScreen = props => {
       style={{
         flex: 1,
       }}>
+      <MMItemBuyModal
+        type={
+          tabIndex === 0
+            ? NFTImageComponentControl.NFTMarket
+            : NFTImageComponentControl.NFTPieceMarket
+        }
+        modalShow={showBuyModal}
+        closeModal={() => setShowBuyModal(false)}
+        data={fastBuyItem}
+        onPressApprove={data => alert('Buy iken alınan data bilgileri gelecek')}
+      />
       <MMMarketFilterModal
         selectedSubTab={subTabIndex}
         modalShow={showFilterModal}
         closeModal={() => setShowFilterModal(false)}
         filterModal={data => FilterForNFT(data)}
       />
-
       <MMMarketPieceFilterModal
         selectedSubTab={subTabIndex}
         modalShow={showPieceFilterModal}
@@ -708,7 +728,7 @@ const MarketScreen = props => {
         />
         {tabIndex === 0 ? (
           <MMMarketItem
-            onPressBuyButton={item => console.log(item)}
+            onPressBuyButton={item => setFastBuyPressControl(item)}
             tabType={0}
             NFTData={subTabIndex === 0 ? NFTDatasForPassenger : NFTDataForCars}
             onPressItem={item =>
@@ -721,6 +741,7 @@ const MarketScreen = props => {
         ) : null}
         {tabIndex === 1 ? (
           <MMPieceItem
+            onPressBuyButton={item => setFastBuyPressControl(item)}
             tabType={0}
             onPressItem={item =>
               navigation.navigate('MarketItemBuyAndInfoScreen', {
